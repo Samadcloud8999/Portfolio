@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff; /* Белый фон */
+  color: #333; /* Тёмно-серый текст */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Разделяем логотип и бургер по краям */
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #ffffff; /* Чисто белый фон для хедера */
+  color: #333; /* Тёмно-серый текст */
+  border-bottom: 1px solid #e0e0e0; /* Лёгкая линия для разделения */
+  position: relative; /* Убираем абсолютное позиционирование */
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 300; /* Очень тонкий текст */
+  color: #333; /* Тёмно-серый текст */
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #333; /* Тёмно-серый текст */
+  font-size: 1.2rem;
+  font-weight: 300; /* Тонкий шрифт */
+  transition: color 0.3s ease;
+  text-align: center; /* Центрируем текст */
+}
+
+.nav li a:hover {
+  color: #d7dcda; /* Синий цвет при наведении */
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  position: relative; /* Убираем абсолютное позиционирование */
+}
+
+
+.burger .line {
+  width: 30px;
+  height: 3px;
+  background-color: #333; /* Тёмно-серый цвет */
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #ffffff; /* Белый фон */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    position: absolute; /* Фиксируем бургер в правом углу */
+    right: 20px; /* Отступ от правого края */
+  }
+}
+
+main {
+  min-height: 100vh;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section.content {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  section.content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #111;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+
+
+.logo-bar {
+  width: 100%;
+  padding: 40px 0;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.logo-bar img {
+  height: 24px;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.logo-bar img:hover {
+  opacity: 1;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4em;
+}
+
+.carousel-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  margin: 0;
+}
+
+.carousel-slides {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Мобильная адаптация */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  .carousel-title {
+    font-size: 2rem;
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel-container {
+    height: 300px;
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+.text-my {
+  justify-content: center;
+  display: flex;
+}
+
+
+.app-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #38a169;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 280px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.service-card .icon {
+  font-size: 50px;
+  color: #38a169;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: #718096;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.service-card .arrow {
+  font-size: 24px;
+  color: #cbd5e0;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card .arrow:hover {
+  color: #2d3748;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
