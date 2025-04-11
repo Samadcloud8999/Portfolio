@@ -9,7 +9,7 @@ export const Headera = () => {
 
   return (
     <>
-      <header className="header">
+    <header className="header">
         <div className="logo">MyPortfolio</div>
         <nav className={`nav ${isOpen ? 'open' : ''}`}>
           <ul>
