@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import sos from '../assets/soskaaa.png';
+import sos from '../assets/Borada.png';
 
-const logos = ['brand1', 'brand2', 'brand3']; // Replace with actual brand names
+const logos = ['brand1', 'brand2', 'brand3']; 
 
 export const Infor = () => {
     return (
